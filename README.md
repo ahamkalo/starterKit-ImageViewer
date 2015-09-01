@@ -12,5 +12,5 @@ Aplikacja pozwala wybrać folder, z którego zostaną wyświetlone obrazy. Lista
 
 4) kliknięcie w miniaturę obrazu znajdującą się w ScrollPanelu
 
-Obraz w pełnej rozdzielczości można obejrzeć po dwukrotnym kliknięciu lewym przyciskiem myszy w obraz aktualnie wyświetlony w oknie ImageView. Spowoduje to otwarcie nowego ScrollPanelu.
+Obraz w pełnej rozdzielczości można obejrzeć po dwukrotnym kliknięciu lewym przyciskiem myszy w obraz aktualnie wyświetlony w oknie ImageView. Spowoduje to otwarcie nowego ScrollPanelu. Aplikacja nie przechowuje obrazów w pełnej rozdzielczości, a jedynie ich miniatury. Wobec tego za każdym razem wybrany obraz jest wczytywany z dysku.
 Ponowne wybranie katalogu powoduje domyślną inicjalizację tabeli, ScrollPanelu i okna ImageView.
