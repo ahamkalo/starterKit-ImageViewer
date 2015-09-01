@@ -18,6 +18,9 @@ public class ImageProviderImpl implements ImageProvider {
 		int id = 1;
 		String name = "";
 		for (File file : folder.listFiles()) {
+			/*
+			 * REV: lepiej uzyc FilenameFilter
+			 */
 			name = file.getName().toString().toLowerCase();
 			if (name.endsWith(".jpg") || name.endsWith(".png")) {
 				result.add(new ImageVO(id, file.getName(), file.getPath()));
