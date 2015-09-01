@@ -74,7 +74,7 @@ public class ImageSearchController {
 	}
 
 	@FXML
-	private void initialize(){
+	private void initialize() {
 		initializeResultTable();
 
 		resultTable.itemsProperty().bind(model.resultProperty());
@@ -128,9 +128,7 @@ public class ImageSearchController {
 		if (resultTable.getItems().size() == 0) {
 			return;
 		}
-		if (mouseEvent.getButton().equals(MouseButton.PRIMARY)) {
-			displayImage();
-		}
+		displayImage();
 	}
 
 	@FXML
@@ -208,7 +206,6 @@ public class ImageSearchController {
 		Stage stage = null;
 		DirectoryChooser directoryChooser = new DirectoryChooser();
 		directoryChooser.setTitle("Choose Directory");
-		//directoryChooser.setInitialDirectory(new File("C:/Users/ahamkalo/Desktop/image"));
 		File folder = directoryChooser.showDialog(stage);
 		if (folder != null) {
 			return folder.getAbsolutePath();
@@ -243,17 +240,15 @@ public class ImageSearchController {
 		int screenWidth = (int) Screen.getPrimary().getVisualBounds().getWidth();
 		int screenHeight = (int) Screen.getPrimary().getVisualBounds().getHeight();
 
-		if(image.getWidth() < screenWidth / 1.5){
+		if (image.getWidth() < screenWidth / 1.5) {
 			newStage.setWidth(image.getWidth() + 20);
-		}
-		else{
+		} else {
 			newStage.setWidth(screenWidth / 1.5);
 		}
 
-		if(image.getHeight() < screenHeight / 1.5){
+		if (image.getHeight() < screenHeight / 1.5) {
 			newStage.setHeight(image.getHeight() + 47);
-		}
-		else{
+		} else {
 			newStage.setHeight(screenHeight / 1.5);
 		}
 	}
