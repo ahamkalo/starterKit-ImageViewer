@@ -83,9 +83,12 @@ public class ImageSearchController {
 	}
 
 	private void setDefaultImage() {
-		String path = getClass().getResource("/com/capgemini/starterkit/imageViewer/images/defaultImage.png").getPath();
-		Image image = new Image(new File(path).toURI().toString());
-		imageView.setImage(image);
+		URL url = getClass().getResource("/com/capgemini/starterkit/imageViewer/images/defaultImage.png");
+		if(url != null){
+			String path = url.getPath();
+			Image image = new Image(new File(path).toURI().toString());
+			imageView.setImage(image);
+		}
 	}
 
 	private void initializeResultTable() {
@@ -203,10 +206,9 @@ public class ImageSearchController {
 	}
 
 	private String getDirectoryPath() {
-		Stage stage = null;
 		DirectoryChooser directoryChooser = new DirectoryChooser();
 		directoryChooser.setTitle("Choose Directory");
-		File folder = directoryChooser.showDialog(stage);
+		File folder = directoryChooser.showDialog(new Stage());
 		if (folder != null) {
 			return folder.getAbsolutePath();
 		}
@@ -218,20 +220,22 @@ public class ImageSearchController {
 		if (mouseEvent.getButton().equals(MouseButton.PRIMARY)) {
 
 			if (mouseEvent.getClickCount() == 2) {
-				ScrollPane scrollPane = new ScrollPane();
-				ImageView newImageView = new ImageView();
-				Stage newStage = new Stage();
-
 				Image image = imageView.getImage();
-				newImageView.setImage(image);
+				if(image != null){
+					ScrollPane scrollPane = new ScrollPane();
+					ImageView newImageView = new ImageView();
+					Stage newStage = new Stage();
 
-				scrollPane.setContent(newImageView);
+					newImageView.setImage(image);
 
-				setStageDimensions(newStage, image);
+					scrollPane.setContent(newImageView);
 
-				Scene scene = new Scene(scrollPane);
-				newStage.setScene(scene);
-				newStage.show();
+					setStageDimensions(newStage, image);
+
+					Scene scene = new Scene(scrollPane);
+					newStage.setScene(scene);
+					newStage.show();
+				}
 			}
 		}
 	}
