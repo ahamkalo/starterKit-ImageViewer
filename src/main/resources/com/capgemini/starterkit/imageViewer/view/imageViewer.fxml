@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?scenebuilder-preview-i18n-resource ../bundle/bundle.properties?>
+<?scenebuilder-stylesheet ../css/standard.css?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.Label?>
+
+<AnchorPane prefHeight="750.0" prefWidth="951.0" xmlns="http://javafx.com/javafx/8.0.51" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.capgemini.starterkit.imageViewer.controller.ImageSearchController">
+  <Label layoutX="113.0" layoutY="34.0" styleClass="formTitle" text="%label.formTitle" />
+  <Button fx:id="selectButton" defaultButton="true" layoutX="388.0" layoutY="14.0" minWidth="10.0" mnemonicParsing="false" onAction="#selectButtonAction" prefHeight="60" prefWidth="300.0" text="%button.select" />
+  <Button layoutX="388.0" layoutY="86.0" mnemonicParsing="false" onAction="#selectPreviousImage" prefHeight="31.0" prefWidth="133.0" text="%button.previous" />
+   <Button layoutX="555.0" layoutY="86.0" mnemonicParsing="false" onAction="#selectNextImage" prefHeight="31.0" prefWidth="133.0" text="%button.next" />
+  <TableView fx:id="resultTable" layoutX="14.0" layoutY="125.0" onKeyReleased="#selectOnKeyTyped" onMousePressed="#selectOnMousePressed" prefHeight="200.0" prefWidth="674.0">
+    <columns>
+      <TableColumn fx:id="idColumn" minWidth="100.0" prefWidth="50.0" text="%column.id" />
+      <TableColumn fx:id="nameColumn" minWidth="550.0" prefWidth="572.0" text="%column.name" />
+    </columns>
+  </TableView>
+  <ImageView fx:id="imageView" fitHeight="378.0" fitWidth="674.0" layoutX="14.0" layoutY="341.0" onMouseClicked="#showImageInNewWindow" pickOnBounds="true" preserveRatio="true" />
+  <ScrollPane fx:id="scrollPane" layoutX="704.0" layoutY="14.0" prefHeight="706.0" prefWidth="240.0">
+    <content>
+      <TilePane fx:id="tilePane" layoutX="23.0" layoutY="23.0" prefHeight="687.0" prefWidth="220.0">
+            <padding>
+               <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+            </padding></TilePane>
+    </content>
+  </ScrollPane>
+</AnchorPane>
